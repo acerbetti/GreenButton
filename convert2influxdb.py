@@ -21,7 +21,7 @@ for row in reader:
                 print "energy,energy_type=gas,value_type=cost value=%s %i" % (row[4][1:], timestamp)
         else:
             # Electricity is hourly
-            datetime_obj_naive = datetime.strptime(row[1] + " " + row[3], "%Y-%m-%d %H:%M")
+            datetime_obj_naive = datetime.strptime(row[1] + " " + row[2], "%Y-%m-%d %H:%M")
             datetime_obj_pacific = timezone('US/Pacific').localize(datetime_obj_naive)
             timestamp = time.mktime(datetime_obj_pacific.timetuple()) * 1000000000
 
